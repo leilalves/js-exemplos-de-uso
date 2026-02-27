@@ -56,21 +56,31 @@
   <!-- Contêiner para a imagem e o texto -->
   <div class="image-container">
     <!-- Imagem que será alterada -->
-    <img id="myImage" src="image.png" alt="Imagem 1">
+    <img id="myImage" src="sabrina1.png" alt="Imagem 1">
 
     <!-- Texto principal que será modificado -->
     <p id="myText">Passe o mouse sobre a imagem</p>
 
     <!-- Texto adicional -->
-    <p class="subtext" id="subText">Sabrina Carpenter - Linda!</p>
+    <p class="subtext" id="subText">0u0</p>
   </div>
 
   <!-- Script JavaScript embutido na página -->
   <script>
+    let sub = document.getElementById('subText');
+    let img = document.getElementById('myImage');
 
-
-    // 1ª Digitação (Resolva aqui o exercício)
-
+    img.addEventListener('mouseover', () => {
+    if (sub.textContent === '0u0') {
+      img.src = 'sabrina2.png';
+      sub.textContent = '>u<'
+    }
+    })
+    
+    img.addEventListener('mouseout', () => {
+        img.src = 'sabrina1.png';
+        sub.textContent = '0u0';
+    })
 
   </script>
 </body>

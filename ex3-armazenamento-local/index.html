@@ -21,7 +21,7 @@
 </head>
 <body>
   <!-- Botão para alternar entre modo claro e escuro -->
-  <button id="myButton">Modo Escuro</button>
+  <button id="myButton">Modo Escuro ^-^</button>
 
   <!-- Script JavaScript embutido na página -->
   <script>
@@ -33,19 +33,27 @@
 
     // Verifica se há uma preferência de modo salva no localStorage
 
-    // 1ª Digitação (Aqui)
-
-      // Se o modo escuro estiver salvo, aplica a classe 'dark-mode' e atualiza o texto do botão
-
+    const savedMode = localStorage.getItem('mode');
+    // Se o modo escuro estiver salvo, aplica a classe 'dark-mode' e atualiza o texto do botão
+      if (savedMode === 'dark') {
+        body.classList.add('dark-mode');
+        button.textContent = 'Modo Claro >-<';
+      }
 
     // Adiciona um evento de clique ao botão
-    
+    button.addEventListener('click', () => {
       // Alterna a classe 'dark-mode' no corpo da página
-      
-
+      body.classList.toggle('dark-mode');
       // Verifica se o modo escuro está ativo e salva a preferência no localStorage
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('mode', 'dark');
+        button.textContent = 'Modo Claro >-<'
+      } else {
+        localStorage.setItem('mode', 'light');
+        button.textContent = 'Modo Escuro ^-^'
+      }
 
-      
+    })  
   </script>
 </body>
 </html>
