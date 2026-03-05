@@ -26,29 +26,31 @@
   <script>
     // Seleciona os elementos do DOM
 
-    // 1ª Digitação (Aqui)
+    const input = document.querySelector('#taskInput');
+    const button = document.querySelector('#addButton');
+    const list = document.querySelector('#taskList');
 
     // Adiciona um evento de clique ao botão "Adicionar"
-    // addButton.addEventListener('click', () => {
+    button.addEventListener('click', () => {
       // Obtém o texto da tarefa e remove espaços em branco no início e no fim
-      
-
+      const text = input.value.trim();
       // Verifica se o texto não está vazio
-      
+      if (text !== '') {
         // Cria um novo item de lista (<li>)
-        
-           // Define o texto da tarefa
-
+        const li = document.createElement('li');
+        // Define o texto da tarefa
+        li.textContent = text;
         // Adiciona um evento de clique ao item da lista para marcar/desmarcar como concluído
-        // li.addEventListener('click', () => {
-            // Alterna a classe 'completed'
-       
-
-        // Adiciona o item à lista de tarefas
-       
-
-        // Limpa o campo de entrada
-        
+        li.addEventListener('click', () => {
+          // Alterna a classe 'completed'
+          li.classList.toggle('completed');
+          });
+          // Adiciona o item à lista de tarefas
+          list.appendChild(li)
+          // Limpa o campo de entrada
+          input.value = '';
+      };
+    });
 
   </script>
 </body>
